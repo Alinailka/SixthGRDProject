@@ -1,0 +1,11 @@
+image: Ubuntu
+stack: jdk 11
+branches:
+  only:
+    - nano
+build: off
+install:
+  - java -jar src/test/java/artifacts/app-card-delivery.jar &
+build_script:
+  - chmod +x gradlew
+  - - ./gradlew test -Dselenide.headless=true --info
